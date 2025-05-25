@@ -49,8 +49,8 @@ public class AppTest
         App.main(new String[]{"-create-user", "-u 'uchii_cu_cel'", "-p 'unghii2023'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'User already exists'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'User already exists'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -74,8 +74,8 @@ public class AppTest
         App.main(new String[]{"-create-user"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Please provide username'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Please provide username'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -99,8 +99,8 @@ public class AppTest
         App.main(new String[]{"-create-user", "-u 'uchii_cu_cel'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Please provide password'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Please provide password'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -121,7 +121,7 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"-create-user", "-u 'uchii_cu_cel'", "-p 'unghii2022'"});
+        App.main(new String[]{"-create-user", "-u 'uchii_cu_cel'", "-p 'unghii2023'"});
 
         // assertion
         assertEquals("{ 'status' : 'ok', 'message' : 'User created successfully'}".replace("' ", "'").replace(" '", "'"),
@@ -153,8 +153,8 @@ public class AppTest
         App.main(new String[]{"-create-post"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -178,8 +178,8 @@ public class AppTest
         App.main(new String[]{"-create-post", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -203,8 +203,8 @@ public class AppTest
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -234,8 +234,8 @@ public class AppTest
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -262,11 +262,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-post -u ‘test’ -p ‘test’"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No text provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No text provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -296,8 +296,8 @@ public class AppTest
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", "-text 'A sosit toamna. Un anotimp frumos, cu multe recolte si multe bucurii. Frunzele ruginii au acoperit asfaltul incalzit de usoarele raze de soare, pe jos parca este un covor tesut din aur si bronz. Totul in jur este incredibil ! Insa, totodata natura cedeaza, pleaca pasarile, unele animalele hiberneaza, crengile pomiilor raman fara frunze. Dansul frunzelor ruginii este un peisaj mirific. Parca ai fi intr-o poveste de vis, din care nu ai mai vrea sa iesi. '"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Post text length exceeded'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Post text length exceeded'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -327,8 +327,8 @@ public class AppTest
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", "-text 'Astazi ma simt bine'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Post added successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Post added successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -356,8 +356,8 @@ public class AppTest
         App.main(new String[]{"-delete-post-by-id"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -381,8 +381,8 @@ public class AppTest
         App.main(new String[]{"-delete-post-by-id", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -406,8 +406,8 @@ public class AppTest
         App.main(new String[]{"-delete-post-by-id", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -437,8 +437,8 @@ public class AppTest
         App.main(new String[]{"-delete-post-by-id", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -504,8 +504,8 @@ public class AppTest
         App.main(new String[]{"-delete-post-by-id", "-u 'test'", "-p 'test'", "-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Post deleted successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Post deleted successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -533,8 +533,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -558,8 +558,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -583,8 +583,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -614,8 +614,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -645,8 +645,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No username to follow was provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No username to follow was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -677,8 +677,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to follow was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to follow was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -720,8 +720,8 @@ public class AppTest
         App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to follow was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to follow was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -752,11 +752,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -781,11 +781,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unfollow-user-by-username"});
+        App.main(new String[]{"-unfollow-user-by-username"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -806,11 +806,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unfollow-user-by-username", "-u 'test'"});
+        App.main(new String[]{"-unfollow-user-by-username", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -831,11 +831,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unfollow-user-by-username", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -862,11 +862,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unfollow-user-by-username", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -893,11 +893,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"unfollow-user-by-username", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No username to unfollow was provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No username to unfollow was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -928,8 +928,8 @@ public class AppTest
         App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to unfollow was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to unfollow was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -963,8 +963,8 @@ public class AppTest
         App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to unfollow was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to unfollow was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -995,16 +995,16 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unfollow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
+        App.main(new String[]{"-unfollow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1029,11 +1029,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post"});
+        App.main(new String[]{"-like-post"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1054,11 +1054,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post", "-u 'test'"});
+        App.main(new String[]{"-like-post", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1079,11 +1079,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-like-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1110,11 +1110,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-like-post", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1144,8 +1144,8 @@ public class AppTest
         App.main(new String[]{"-like-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier to like was povided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier to like was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1175,8 +1175,8 @@ public class AppTest
         App.main(new String[]{"-like-post", "-u 'test'", "-p 'test'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to like was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to like was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1224,8 +1224,8 @@ public class AppTest
         App.main(new String[]{"-like-post", "-u 'test'", "-p 'test'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to like was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to like was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1261,11 +1261,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
+        App.main(new String[]{"-like-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1290,11 +1290,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post"});
+        App.main(new String[]{"-unlike-post"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1315,11 +1315,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post", "-u 'test'"});
+        App.main(new String[]{"-unlike-post", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1340,11 +1340,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-unlike-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1371,11 +1371,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-unlike-post", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1405,8 +1405,8 @@ public class AppTest
         App.main(new String[]{"-unlike-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier to unlike was povided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier to unlike was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1436,8 +1436,8 @@ public class AppTest
         App.main(new String[]{"-unlike-post", "-u 'test'", "-p 'test'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1474,11 +1474,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
+        App.main(new String[]{"-unlike-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1513,16 +1513,16 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
+        App.main(new String[]{"-like-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
+        App.main(new String[]{"-unlike-post", "-u 'test2'", "-p 'test2'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1546,11 +1546,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-comment"});
+        App.main(new String[]{"-like-comment"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1571,11 +1571,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-comment", "-u 'test'"});
+        App.main(new String[]{"-like-comment", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1596,11 +1596,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-comment", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-like-comment", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1627,11 +1627,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-comment", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-like-comment", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1661,8 +1661,8 @@ public class AppTest
         App.main(new String[]{"-like-comment", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No comment identifier to like was povided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No comment identifier to like was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1691,8 +1691,8 @@ public class AppTest
         App.main(new String[]{"-like-comment", "-u 'test'", "-p 'test'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to like was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to like was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1725,7 +1725,7 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"comment-post", "-u 'test'", "-p 'test'", "-post-id '1'", "-text 'Foarte bine'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "-post-id '1'", "-text 'Foarte bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
@@ -1738,8 +1738,8 @@ public class AppTest
         App.main(new String[]{"-like-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to like was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to like was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1767,20 +1767,20 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"comment-post", "-u 'test'", "-p 'test'", "post-id '1'", "-text 'Imi pare rau'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "-post-id '1'", "-text 'Imi pare rau'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–like-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
+        App.main(new String[]{"-like-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1804,11 +1804,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment"});
+        App.main(new String[]{"-unlike-comment"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1829,11 +1829,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment", "-u 'test'"});
+        App.main(new String[]{"-unlike-comment", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1854,11 +1854,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-unlike-comment", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1885,11 +1885,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-unlike-comment", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1919,8 +1919,8 @@ public class AppTest
         App.main(new String[]{"-unlike-comment", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No comment identifier to unlike was provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No comment identifier to unlike was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1949,8 +1949,8 @@ public class AppTest
         App.main(new String[]{"-unlike-comment", "-u 'test'", "-p 'test'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -1980,20 +1980,20 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"comment-post", "-u 'test'", "-p 'test'", "post-id '1'", "-text 'Imi pare rau'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "-post-id '1'", "-text 'Imi pare rau'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
+        App.main(new String[]{"-unlike-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The comment identifier to unlike was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2023,25 +2023,25 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"comment-post", "-u 'test'", "-p 'test'", "post-id '1'", "-text 'Imi pare rau'"});
-        bos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(bos));
-
-        // action
-        App.main(new String[]{"–like-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "-post-id '1'", "-text 'Imi pare rau'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–unlike-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
+        App.main(new String[]{"-like-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+
+        // action
+        App.main(new String[]{"-unlike-comment", "-u 'test2'", "-p 'test2'", "-comment-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2066,11 +2066,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts"});
+        App.main(new String[]{"-get-followings-posts"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2091,11 +2091,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts", "-u 'test'"});
+        App.main(new String[]{"-get-followings-posts", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2116,11 +2116,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-followings-posts", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2141,17 +2141,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-followings-posts", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-followings-posts", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2186,47 +2186,51 @@ public class AppTest
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'", " -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'", "-text 'Astazi ma simt bine'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'", " -text 'Am terminat temele'"});
+        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'", "-text 'Am terminat temele'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'", " -text 'Merg la pescuit'"});
+        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'", "-text 'Merg la pescuit'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-create-post", "-u 'test4'", "-p 'test4'", " -text 'Ma plimb in parc'"});
+        App.main(new String[]{"-create-post", "-u 'test4'", "-p 'test4'", "-text 'Ma plimb in parc'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", " -username 'test2'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", "-username 'test2'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", " -username 'test3'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", "-username 'test3'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", " -username 'test4'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test1'", "-p 'test1'", "-username 'test4'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followings-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-followings-posts", "-u 'test1'", "-p 'test1'"});
+
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        String currentDateAsString = dateFormat.format(date);
 
         // assertion
-        assertEquals(("{ “status” : “ok”, “message” : [" +
-                        "{“post_id” : “4”, “post_text” : “Ma plimb in parc”, “post_date” : “date4”, “username” : “test4”}," +
-                        "{“post_id” : “3”, “post_text” : “Merg la pescuit”, “post_date” : “date3”, “username” : “test3”}," +
-                        "{“post_id” : “2”, “post_text” : “Am terminat temele”, “post_date” : “date2”, “username” : “test2”}," +
-                        "{“post_id” : “1”, “post_text” : “Astazi ma simt bine”, “post_date” : “date1”, “username” : “test1”}]}"
+        assertEquals(("{ 'status' : 'ok', 'message' : [" +
+                        "{'post_id' : '4', 'post_text' : 'Ma plimb in parc', 'post_date' : '" + currentDateAsString + "', 'username' : 'test4'}," +
+                        "{'post_id' : '3', 'post_text' : 'Merg la pescuit', 'post_date' : '" + currentDateAsString + "', 'username' : 'test3'}," +
+                        "{'post_id' : '2', 'post_text' : 'Am terminat temele', 'post_date' : '" + currentDateAsString + "', 'username' : 'test2'}," +
+                        "{'post_id' : '1', 'post_text' : 'Astazi ma simt bine', 'post_date' : '" + currentDateAsString + "', 'username' : 'test2'}]}"
                     )
-                        .replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+                        .replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2250,11 +2254,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-user-posts"});
+        App.main(new String[]{"-get-user-posts"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2275,11 +2279,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-user-posts", "-u 'test'"});
+        App.main(new String[]{"-get-user-posts", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2300,11 +2304,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-user-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2325,17 +2329,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-user", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-user", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-user-posts", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2361,11 +2365,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-user-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No username to list posts was provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No username to list posts was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2394,8 +2398,8 @@ public class AppTest
         App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to list posts was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to list posts was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2430,8 +2434,8 @@ public class AppTest
         App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to list posts was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to list posts was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2483,15 +2487,19 @@ public class AppTest
         System.setOut(new PrintStream(bos));
         App.main(new String[]{"-get-user-posts", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        String currentDateAsString = dateFormat.format(date);
+
         // assertion
-        assertEquals(("{“status” : “ok”, “message” :" + " [" +
-                        "{“post_id” : “4”, “post_text” : “Ma plimb in parc”, “post_date” : “4”}" +
-                        "{“post_id” : “3”, “post_text” : “Merg la pescuit”, “post_date” : “3”}" +
-                        "{“post_id” : “2”, “post_text” : “Am terminat temele”, “post_date” : “date2”}" +
-                        "{“post_id” : “1”, “post_text” : “Astazi ma simt bine”, “post_date” : “date1”}," +
+        assertEquals(("{'status' : 'ok', 'message' :" + " [" +
+                        "{'post_id' : '4', 'post_text' : 'Ma plimb in parc', 'post_date' : '" + currentDateAsString + "'}," +
+                        "{'post_id' : '3', 'post_text' : 'Merg la pescuit', 'post_date' : '" + currentDateAsString + "'}," +
+                        "{'post_id' : '2', 'post_text' : 'Am terminat temele', 'post_date' : '" + currentDateAsString + "'}," +
+                        "{'post_id' : '1', 'post_text' : 'Astazi ma simt bine', 'post_date' : '" + currentDateAsString + "'}" +
                         "]}")
-                        .replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+                        .replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2516,11 +2524,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details"});
+        App.main(new String[]{"-get-post-details"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2541,11 +2549,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2566,11 +2574,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2591,17 +2599,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-user", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-user", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2628,11 +2636,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier was povided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No post identifier was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2659,11 +2667,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test'", "-post-id '1'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test'", "-post-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2688,16 +2696,16 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", " -text 'Am terminat temele'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", "-text 'Am terminat temele'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test'", "-post-id '2'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test'", "-post-id '2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The post identifier was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2728,29 +2736,33 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", "-text 'Am terminat temele'"});
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+
+        App.main(new String[]{"-follow-user-by-username", "-u 'test2'", "-p 'test2'", "-username 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–comment-post", "-u 'test2'", "-p 'test2'", "-post-id '1'", "-text 'Felicitari'"});
+        App.main(new String[]{"-comment-post", "-u 'test2'", "-p 'test2'", "-post-id '1'", "-text 'Felicitari'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–get-post-details", "-u 'test'", "-p 'test'", "post-id '1'"});
+        App.main(new String[]{"-get-post-details", "-u 'test'", "-p 'test'", "-post-id '1'"});
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String currentDateAsString = dateFormat.format(date);
 
         // assertion
-        assertEquals(("{“status” : “ok”, “message” : [{“post_text” : “Am terminat temele”, “post_date” :“" +
-                        currentDateAsString + "”, “username” : “test”, “number_of_likes” :" +
-                        " “0”, “comments” : [{“comment_id” : “2” ," +
-                        " “comment_text” : “Felicitari”, “comment_date” : “" + currentDateAsString + "”, " +
-                        "“username” : “test2”, “number_of_likes” : “0”}")
-                        .replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals(("{'status' : 'ok', 'message' : [{'post_text' : 'Am terminat temele', 'post_date' :'" +
+                        currentDateAsString + "', 'username' : 'test', 'number_of_likes' :" +
+                        " '0', 'comments' : [{'comment_id' : '1' ," +
+                        " 'comment_text' : 'Felicitari', 'comment_date' : '" + currentDateAsString + "', " +
+                        "'username' : 'test2', 'number_of_likes' : '0'}] }] }")
+                        .replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2774,11 +2786,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post"});
+        App.main(new String[]{"-comment-post"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2799,11 +2811,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post", "-u 'test'"});
+        App.main(new String[]{"-comment-post", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2824,11 +2836,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2849,17 +2861,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2886,11 +2898,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–comment-post -u ‘test’ -p ‘test’"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No text provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No text provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2921,11 +2933,11 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. '"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. Sunt interese mari la mijloc. '"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Comment text length exceeded'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Comment text length exceeded'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2956,11 +2968,11 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc.'"});
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc.'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Comment added successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Comment added successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -2985,11 +2997,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id"});
+        App.main(new String[]{"-delete-comment-by-id"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3010,11 +3022,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3035,11 +3047,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3060,17 +3072,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-user", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-user", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3097,11 +3109,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No identifier was povided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No identifier was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3128,11 +3140,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test'", "-p 'test'", "-id '1'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test'", "-p 'test'", "-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The identifier was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The identifier was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3161,20 +3173,19 @@ public class AppTest
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-
         App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'", "-text 'Am terminat temele'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc.'"});
 
-        App.main(new String[]{"–comment-post", "-u 'test'", "-p 'test'",  "-post-id '1'", "-text 'Sunt interese mari la mijloc.'"});
-
-        // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test2'", "-p 'test2'", "-id '1'"});
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test2'", "-p 'test2'", "-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The identifier was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The identifier was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3203,20 +3214,24 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Imi beau cafeaua'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Imi beau cafeaua'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–comment-post", "-u 'test2'", "-p 'test2'", "post-id '1'", "-text 'Si eu astazi ma simt bine'"});
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-follow-user-by-username", "-u 'test2'", "-p 'test2'", "-username 'test'"});
+
+        App.main(new String[]{"-comment-post", "-u 'test2'", "-p 'test2'", "-post-id '1'", "-text 'Si eu astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–delete-comment-by-id", "-u 'test2'", "-p 'test2'", "-id '1'"});
+        App.main(new String[]{"-delete-comment-by-id", "-u 'test2'", "-p 'test2'", "-id '1'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : 'Operation executed successfully'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3241,11 +3256,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-following"});
+        App.main(new String[]{"-get-following"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3266,11 +3281,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-following", "-u 'test'"});
+        App.main(new String[]{"-get-following", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3291,11 +3306,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-following", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-following", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3316,17 +3331,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-user", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-user", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-following", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-following", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3362,25 +3377,23 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test3'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test3'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test4'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test4'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–get-following", "-u 'test'", "-p 'test'"});
-        bos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-get-following", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : [ “test2”, “test3”, “test4” ]}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : [ 'test2', 'test3', 'test4' ]}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3405,11 +3418,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers"});
+        App.main(new String[]{"-get-followers"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3430,11 +3443,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers", "-u 'test'"});
+        App.main(new String[]{"-get-followers", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3455,11 +3468,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-followers", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3480,17 +3493,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-followers", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3517,11 +3530,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-followers", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'No username to list followers was provided'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'No username to list followers was provided'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3548,11 +3561,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-followers", "-u 'test'", "-p 'test'", "-username 'test2'"});
+        App.main(new String[]{"-get-followers", "-u 'test'", "-p 'test'", "-username 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'The username to list followers was not valid'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'The username to list followers was not valid'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3589,25 +3602,23 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test2'", "-p 'test2'", "-username 'test'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test2'", "-p 'test2'", "-username 'test'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test3'", "-p 'test3'", "-username 'test'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test3'", "-p 'test3'", "-username 'test'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–follow-user-by-username", "-u 'test4'", "-p 'test4'", "-username 'test'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test4'", "-p 'test4'", "-username 'test'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"–get-followers", "-u 'test'", "-p 'test'", "-username 'test'"});
-        bos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-get-followers", "-u 'test'", "-p 'test'", "-username 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'ok', 'message' : [ “test2”, “test3”, “test4” ]}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'ok', 'message' : [ 'test2', 'test3', 'test4' ]}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3634,11 +3645,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-posts"});
+        App.main(new String[]{"-get-most-liked-posts"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3659,11 +3670,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-posts", "-u 'test'"});
+        App.main(new String[]{"-get-most-liked-posts", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3684,11 +3695,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-most-liked-posts", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3709,16 +3720,16 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-posts", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-most-liked-posts", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3751,15 +3762,15 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'"," -text 'Am terminat temele'"});
+        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'","-text 'Am terminat temele'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'"," -text 'Merg la pescuit'"});
+        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'","-text 'Merg la pescuit'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
@@ -3775,18 +3786,18 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-get-most-liked-posts"});
+        App.main(new String[]{"-get-most-liked-posts", "-u 'test'", "-p 'test'"});
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String currentDateAsString = dateFormat.format(date);
 
         // assertion
-        assertEquals(("{ “status” : “ok”, “message” : [{“post_id” : “1”,“post_text” : “Astazi ma simt bine”, “post_date” : “"+ currentDateAsString + "”, “username” : “test”, “number_of_likes” : “2” }," +
-                        "{“post_id” : “2”,“post_text” : “Am terminat temele”,  “post_date” : “" + currentDateAsString + "”, “username” : “test2”, “number_of_likes” : “1” }" +
-                        "{“post_id” : “3”,“post_text” : “Merg la pescuit”, “post_date” : “" + currentDateAsString + "”, “username” : “test3”, “number_of_likes” : “0” } ]" +
-                        "}").replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals(("{ 'status' : 'ok', 'message' : [{'post_id' : '1','post_text' : 'Astazi ma simt bine', 'post_date' : '"+ currentDateAsString + "', 'username' : 'test', 'number_of_likes' : '2' }," +
+                        "{'post_id' : '2','post_text' : 'Am terminat temele', 'post_date' : '" + currentDateAsString + "', 'username' : 'test2', 'number_of_likes' : '1' }," +
+                        "{'post_id' : '3','post_text' : 'Merg la pescuit', 'post_date' : '" + currentDateAsString + "', 'username' : 'test3', 'number_of_likes' : '0' } ]" +
+                        "}").replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3811,11 +3822,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-commented-posts"});
+        App.main(new String[]{"-get-most-commented-posts"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3836,11 +3847,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-commented-posts", "-u 'test'"});
+        App.main(new String[]{"-get-most-commented-posts", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3861,11 +3872,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-commented-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-most-commented-posts", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3886,17 +3897,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-commented-posts", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-most-commented-posts", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3914,7 +3925,7 @@ public class AppTest
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        //App.main(new String[]{"-cleanup-all"});
+        App.main(new String[]{"-cleanup-all"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
@@ -3931,45 +3942,57 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'"," -text 'Am terminat temele'"});
+        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'","-text 'Am terminat temele'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'"," -text 'Merg la pescuit'"});
+        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'","-text 'Merg la pescuit'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-comment-post", "-u 'test2'", "-p 'test2'", "post-id '1'", "-text 'Foarte bine'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test2'", "-p 'test2'", "-username 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-comment-post", "-u 'test3'", "-p 'test3'", "post-id '1'", "-text 'Forza Steaua'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test3'", "-p 'test3'", "-username 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
-        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "post-id '2'", "-text 'Incredibil!'"});
+        App.main(new String[]{"-follow-user-by-username", "-u 'test'", "-p 'test'", "-username 'test2'"});
+
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-comment-post", "-u 'test2'", "-p 'test2'", "-post-id '1'", "-text 'Foarte bine'"});
+
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-comment-post", "-u 'test3'", "-p 'test3'", "-post-id '1'", "-text 'Forza Steaua'"});
+
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-comment-post", "-u 'test'", "-p 'test'", "-post-id '2'", "-text 'Incredibil!'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-get-most-commented-posts","-u ‘test’ -p 'test"});
+        App.main(new String[]{"-get-most-commented-posts","-u 'test'", "-p 'test'"});
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String currentDateAsString = dateFormat.format(date);
 
         // assertion
-        assertEquals(("{ “status” : “ok”, “message” : [{“post_id” : “1”,“post_text” : “Astazi ma simt bine”, “post_date” : “" + currentDateAsString + "”, “username” : “test”, “number_of_comments” : “2” },\" +\n" +
-                        "                        \"{“post_id” : “2”,“post_text” : “Am terminat temele”, “post_date” : “" + currentDateAsString + "”, “username” : “test2”, “number_of_comments” : “1” }\" +\n" +
-                        "                        \"{“post_id” : “3”,“post_text” : “Merg la pescuit”, “post_date” : “" + currentDateAsString + "”, “username” : “test3”, “number_of_comments” : “0” }\" +\n" +
-                        "]}").replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals(("{ 'status' : 'ok', 'message' : [{'post_id' : '1','post_text' : 'Astazi ma simt bine', 'post_date' : '" + currentDateAsString + "', 'username' : 'test', 'number_of_comments' : '2' }," +
+                        "{'post_id' : '2','post_text' : 'Am terminat temele', 'post_date' : '" + currentDateAsString + "', 'username' : 'test2', 'number_of_comments' : '1' }," +
+                        "{'post_id' : '3','post_text' : 'Merg la pescuit', 'post_date' : '" + currentDateAsString + "', 'username' : 'test3', 'number_of_comments' : '0' }" +
+                        "]}").replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -3994,11 +4017,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-followed-posts"});
+        App.main(new String[]{"-get-most-followed-users"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4019,11 +4042,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-followed-posts", "-u 'test'"});
+        App.main(new String[]{"-get-most-followed-users", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4044,11 +4067,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-followed-posts", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-most-followed-users", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4069,17 +4092,17 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-user", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-user", "-u 'test'", "-p 'test'"});
 
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-followed-posts", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-most-followed-users", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4199,18 +4222,16 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-get-most-followed-users"," -u ‘test’ -p -'test'"});
-        bos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(bos));
+        App.main(new String[]{"-get-most-followed-users","-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals(("{ “status” : “ok”, “message” : [{“username” : “test”,“number_of_followers” : “ 4” }" +
-                        "{“username” : “test2”,“number_of_followers” : “ 3” }" +
-                        "{“username” : “test4”,“number_of_followers” : “ 2” }" +
-                        "{“username” : “test5”,“number_of_followers” : “ 1” }" +
-                        "{“username” : “test6”,“number_of_followers” : “ 1” }" +
-                        " }").replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals(("{ 'status' : 'ok', 'message' : [{'username' : 'test','number_of_followers' : ' 4' }," +
+                        "{'username' : 'test2','number_of_followers' : ' 3' }," +
+                        "{'username' : 'test4','number_of_followers' : ' 2' }," +
+                        "{'username' : 'test5','number_of_followers' : ' 1' }," +
+                        "{'username' : 'test6','number_of_followers' : ' 1' }" +
+                        "]}").replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4235,11 +4256,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-users"});
+        App.main(new String[]{"-get-most-liked-users"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4260,11 +4281,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-users", "-u 'test'"});
+        App.main(new String[]{"-get-most-liked-users", "-u 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'You need to be authenticated'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4285,11 +4306,11 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-users", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-get-most-liked-users", "-u 'test'", "-p 'test'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4310,16 +4331,16 @@ public class AppTest
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–create-post", "-u 'test'", "-p 'test'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
         // action
-        App.main(new String[]{"–get-most-liked-users", "-u 'test'", "-p 'test2'"});
+        App.main(new String[]{"-get-most-liked-users", "-u 'test'", "-p 'test2'"});
 
         // assertion
-        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+        assertEquals("{ 'status' : 'error', 'message' : 'Login failed'}".replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
@@ -4364,27 +4385,27 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'"," -text 'Astazi ma simt bine'"});
+        App.main(new String[]{"-create-post", "-u 'test'", "-p 'test'","-text 'Astazi ma simt bine'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'"," -text 'Am terminat temele'"});
+        App.main(new String[]{"-create-post", "-u 'test2'", "-p 'test2'","-text 'Am terminat temele'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'"," -text 'Merg la pescuit'"});
+        App.main(new String[]{"-create-post", "-u 'test3'", "-p 'test3'","-text 'Merg la pescuit'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test4'", "-p 'test4'"," -text 'Ma plimb in parc'"});
+        App.main(new String[]{"-create-post", "-u 'test4'", "-p 'test4'","-text 'Ma plimb in parc'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test5'", "-p 'test5'"," -text 'Imi beau cafeaua'"});
+        App.main(new String[]{"-create-post", "-u 'test5'", "-p 'test5'","-text 'Imi beau cafeaua'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-create-post", "-u 'test6'", "-p 'test6'"," -text 'Cerul este insorit'"});
+        App.main(new String[]{"-create-post", "-u 'test6'", "-p 'test6'","-text 'Cerul este insorit'"});
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
@@ -4432,16 +4453,16 @@ public class AppTest
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
 
-        App.main(new String[]{"-get-top-liked-posts", "-n 5"});
+        App.main(new String[]{"-get-most-liked-users",  "-u 'test'", "-p 'test'"});
 
         // assertion
         assertEquals(("{ 'status' : 'ok', 'message' : " +
-                        "[{“username” : “test2”,“number_of_likes” : “3” }" +
-                        "{“username” : “test”,“number_of_likes” : “2”}" +
-                        "{“username” : “test6”,“number_of_likes” : “2”}" +
-                        "{“username” : “test3”,“number_of_likes” : “1”}" +
-                        "{“username” : “test4”,“number_of_likes” : “1”}").replace("' ", "'").replace(" '","'"),
-                bos.toString().trim().replace("' ", "'").replace(" '","'"));
+                        "[{'username' : 'test2','number_of_likes' : '3' }," +
+                        "{'username' : 'test','number_of_likes' : '2'}," +
+                        "{'username' : 'test6','number_of_likes' : '2'}," +
+                        "{'username' : 'test3','number_of_likes' : '1'}," +
+                        "{'username' : 'test4','number_of_likes' : '1'}]}").replace("' ", "'").replace(" '","'").replace(" ",""),
+                bos.toString().trim().replace("' ", "'").replace(" '","'").replace(" ",""));
 
         // undo the binding in System
         System.setOut(originalOut);
